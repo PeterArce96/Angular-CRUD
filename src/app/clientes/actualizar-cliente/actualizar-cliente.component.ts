@@ -42,5 +42,5 @@ export class ActualizarClienteComponent implements OnInit {
         console.log(err);
       })
   }
-
+  
 }

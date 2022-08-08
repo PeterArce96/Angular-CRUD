@@ -13,13 +13,23 @@ export class ListadoClientesComponent implements OnInit {
   constructor(private clientesService: ClientesService) { }
 
   ngOnInit(): void {
+    this.cargarClientes();
+  }
+  cargarClientes(){
     this.clientesService.getClientes()
       .subscribe((res: any)=>{
         this.clientes= res;
-        console.log(this.clientes)
       }, (err: any)=>{
         console.log(err);
       })
   }
 
+  eliminarCliente(cif){
+    this.clientesService.deleteClientes(cif)
+      .subscribe((res: any)=>{
+        this.cargarClientes();
+      }, (err: any)=>{
+        console.log(err);
+      })
+  }
 }

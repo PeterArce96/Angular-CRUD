@@ -47,4 +47,13 @@ export class ClientesService {
       )
   }
 
+  deleteClientes(cif){
+    return this.http.delete(this.endpointClientes + '/' + cif)
+      .pipe(
+        map((data: any) => {
+          return data;
+        })
+      )
+  }
+
 }

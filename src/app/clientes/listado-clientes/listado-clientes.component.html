@@ -13,7 +13,10 @@
                     <th>Dirección</th>
                     <th>Localidad</th>
                     <th>
-                        Acciones
+                        Editar
+                    </th>
+                    <th>
+                        Borrar
                     </th>
                 </tr>
                 <tr *ngFor="let cliente of clientes">
@@ -24,6 +27,11 @@
                     <td>
                         <button routerLink="/actualizar-cliente/{{cliente.cif}}" class="outline">
                             Actualizar
+                        </button>
+                    </td>
+                    <td>
+                        <button (click)="eliminarCliente(cliente.cif)">
+                            Eliminar
                         </button>
                     </td>
                 </tr>
