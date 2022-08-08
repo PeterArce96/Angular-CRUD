@@ -20,4 +20,13 @@ export class ClientesService {
                     )
   }
 
+  postClientes(cliente){
+    return this.http.post(this.endpointClientes, cliente)
+    .pipe(
+      map((data: any) => {
+        return data;
+      })
+    )
+  }
+
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
+import { ClientesService } from 'src/app/servicios/clientes.service';
 
 @Component({
   selector: 'app-crear-cliente',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearClienteComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
 
+  constructor(private clientesService: ClientesService,
+              private router: Router) { }
+
+  // ngOnInit --> cuando el DOM esté cargado
   ngOnInit(): void {
+    this.form = new FormGroup({
+      nombre: new FormControl('', [Validators.required]),
+      cif: new FormControl('',[Validators.required, Validators.minLength(9)]),
+      direccion: new FormControl(''),
+      localidad: new FormControl('')
+    })
+  }
+  enviarCliente(): void{
+    this.clientesService.postClientes(this.form.value)
+    .subscribe((res: any)=>{
+      this.router.navigate(['/clientes']);
+    }, (err: any)=> {
+      console.log(err);
+    })
   }
 
 }
