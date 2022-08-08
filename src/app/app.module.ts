@@ -7,13 +7,15 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ListadoClientesComponent } from './clientes/listado-clientes/listado-clientes.component';
 import { CrearClienteComponent } from './clientes/crear-cliente/crear-cliente.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ActualizarClienteComponent } from './clientes/actualizar-cliente/actualizar-cliente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     ListadoClientesComponent,
-    CrearClienteComponent
+    CrearClienteComponent,
+    ActualizarClienteComponent
   ],
   imports: [
     BrowserModule,

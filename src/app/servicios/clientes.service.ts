@@ -20,6 +20,15 @@ export class ClientesService {
                     )
   }
 
+  // cliente específico a actualizar
+  getCliente(cif){
+    return this.http.get(this.endpointClientes + '/' + cif).pipe(
+      map((data: any) => {
+        return data;
+      })
+    )
+  }
+
   postClientes(cliente){
     return this.http.post(this.endpointClientes, cliente)
     .pipe(
